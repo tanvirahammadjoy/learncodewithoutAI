@@ -1,5 +1,3 @@
-import { log } from "node:console";
-
 const fruites = [
   "apple",
   "banana",
@@ -38,10 +36,78 @@ const fruites = [
 //   }
 // }
 
-let index = 0;
+// let index = 0;
 
-while (index < 100) {
-  const randomIndex = Math.floor(Math.random() * fruites.length);
-  console.log(index, randomIndex, fruites[randomIndex]);
-  index++;
+// while (index < 100) {
+//   const randomIndex = Math.floor(Math.random() * fruites.length);
+//   console.log(index, randomIndex, fruites[randomIndex]);
+//   index++;
+// }
+
+console.log(fruites);
+
+// print the fruit which fruits only maches with b
+// for (let index = 0; index < fruites.length; index++) {
+// console.log(fruites[index]);
+// expected output:
+// banana
+// blueberry
+
+// not working
+// if (fruites[index] == "banana" && fruites[index] == "blueberry") {
+//   console.log(fruites[index]);
+// }
+
+// not working
+// for (let j = 0; j < index; j++) {
+//   console.log(index[j]);
+// }
+
+// console.log(fruites[index].charAt());
+
+// worked
+// if (fruites[index].charAt() == "b") {
+//   console.log(fruites[index]);
+// }
+// }
+
+let count = 0;
+
+// for (let index = 0; index < fruites.length; index++) {
+//   if (fruites[index][0] == "b") {
+//     console.log(fruites[index]);
+//     count++;
+//   }
+// }
+// console.log(count);
+
+// for (let index = 0; index < fruites.length; index++) {
+//   if (fruites[index].startsWith("b")) {
+//     console.log(fruites[index]);
+//     count += 1;
+//   }
+// }
+
+// console.log(count);
+
+// for (let index = 0; index < fruites.length; index++) {
+//   if (fruites[index].includes("b")) {
+//     console.log(fruites[index]);
+//     count++;
+//   }
+// }
+
+// console.log(count);
+
+// for (let i = 0; i < fruites.length; i++) {
+//   if (fruites[i] == "banana" || fruites[i] == "blueberry") {
+//     console.log(fruites[i]);
+//   }
+// }
+
+for (let i = 0; i < fruites.length; i++) {
+  if (/^b/.test(fruites[i])) {
+    console.log(fruites[i]);
+    console.log("it's call reg");
+  }
 }
