@@ -109,5 +109,13 @@ for (let i = 0; i < fruites.length; i++) {
   if (/^b/.test(fruites[i])) {
     console.log(fruites[i]);
     console.log("it's call reg");
+    for (let j = 0; j < fruites[i].length; j++) {
+      console.log(fruites[i][j]);
+      if (fruites[i][j] == "b") {
+        count++;
+      }
+    }
   }
 }
+
+console.log(count);

@@ -2,11 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Fruit Search</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 40px;
+        background: #111;
+        color: #fff;
+      }
+
+      input {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+      }
+
+      ul {
+        margin-top: 20px;
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 8px;
+        background: #222;
+        margin-bottom: 5px;
+        border-radius: 6px;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script src="script.mjs"></script>
+    <h2>🔍 Fruit Search</h2>
+    <input type="text" id="search" placeholder="Type to search..." />
+
+    <ul id="results"></ul>
+
+    <script>
+      const fruits = [
+        "apple",
+        "banana",
+        "orange",
+        "grape",
+        "melon",
+        "kiwi",
+        "strawberry",
+        "blueberry",
+        "peach",
+        "pear",
+      ];
+
+      const searchInput = document.getElementById("search");
+      const resultsList = document.getElementById("results");
+
+      function displayResults(items) {
+        resultsList.innerHTML = "";
+
+        items.forEach((fruit) => {
+          const li = document.createElement("li");
+          li.textContent = fruit;
+          resultsList.appendChild(li);
+        });
+      }
+
+      // initial display
+      displayResults(fruits);
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+
+        const filtered = fruits.filter((fruit) =>
+          fruit.toLowerCase().includes(query),
+        );
+
+        displayResults(filtered);
+      });
+    </script>
   </body>
 </html>
